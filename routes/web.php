@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ComicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+// io sono crud
+Route::get('/', [ComicController::class, 'index'])->name('index');
+Route::get('/create', [ComicController::class, 'create'])->name('create');
+Route::post('/', [ComicController::class, 'store'])->name('store');
